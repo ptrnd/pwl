@@ -1,9 +1,10 @@
 <?php
 
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Mengampu extends CI_Controller {
+class Mengampu extends CI_Controller
+{
 
     public function __construct()
     {
@@ -30,7 +31,7 @@ class Mengampu extends CI_Controller {
     }
 
     public function tambah()
-    {              
+    {
         $data['title'] = 'Form Tambah data';
         $data['mahasiswa'] = $this->mengampu_model->getAllMahasiswa();
         $data['matakuliah'] = $this->mengampu_model->getAllMatkul();
@@ -39,24 +40,26 @@ class Mengampu extends CI_Controller {
         $valueMhs = $this->input->post('mahasiswa');
         $valueKls = $this->input->post('kelas');
         $valueMtk = $this->input->post('matkul');
+
+        $this->load->view('template/header', $data);
+        $this->load->view('mengampu/tambah', $data);
+        $this->load->view('template/footer');
+
         if ($valueMhs == 0 || $valueKls == 0 || $valueMtk == 0) {
             $data['invalid'] = "Ada field yang belum dipilih. Pilih fieldnya terlebih dahulu.";
-            $this->load->view('template/header', $data);
-            $this->load->view('mengampu/tambah', $data);
-            $this->load->view('template/footer');
+            $this->session->set_flashdata('flash', 'Ada field yang belum dipilih.');
         } else {
             # code...
             $this->mengampu_model->tambahdata();
-
             // untuk flashdata mempunyai 2 parameter (nama flashdata/alias, isi dari flastdata)
-            $this->session->set_flashdata('flash-data', 'ditambahkan');                
+            $this->session->set_flashdata('flash-data', 'ditambahkan');
             // echo "data berhasil ditambah";
-            redirect('mengampu','refresh');
+            redirect('mengampu', 'refresh');
         }
     }
 
     public function edit($id)
-    {              
+    {
         $data['title'] = 'Form Tambah data';
         $data['mengampu'] = $this->mengampu_model->getMengampuByID($id);
 
@@ -71,6 +74,7 @@ class Mengampu extends CI_Controller {
         $valueMhs = $this->input->post('mahasiswa');
         $valueKls = $this->input->post('kelas');
         $valueMtk = $this->input->post('matkul');
+
         if ($valueMhs == 0 || $valueKls == 0 || $valueMtk == 0) {
             $this->load->view('template/header', $data);
             $this->load->view('mengampu/edit', $data);
@@ -80,9 +84,9 @@ class Mengampu extends CI_Controller {
             $this->mengampu_model->editdata();
 
             // untuk flashdata mempunyai 2 parameter (nama flashdata/alias, isi dari flastdata)
-            $this->session->set_flashdata('flash-data', 'diedit');                
+            $this->session->set_flashdata('flash-data', 'diedit');
             // echo "data berhasil ditambah";
-            redirect('mengampu','refresh');
+            redirect('mengampu', 'refresh');
         }
     }
 
@@ -90,7 +94,7 @@ class Mengampu extends CI_Controller {
     {
         $this->mengampu_model->hapusdata($id);
         $this->session->set_flashdata('flash-data', 'dihapus');
-        redirect('mengampu','refresh');
+        redirect('mengampu', 'refresh');
     }
 
     public function detail($id)

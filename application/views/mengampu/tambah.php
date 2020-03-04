@@ -6,11 +6,14 @@
                     Form Tambah Data
                 </div>
                 <div class="card-body">
-                    <?php if($invalid == "") : ?>
+                    <?php if ($this->session->flashdata('flash')) : ?>
                         <div class="alert alert-danger" role="alert">
-                            <?php echo $invalid; ?>
+                            <?= $this->session->flashdata('flash'); ?>
+                            
                         </div>
                     <?php endif; ?>
+
+
                     <form action="" method="POST">
                         <div class="form-group">
                             <label for="mahasiswa">Nama Mahasiswa</label>
