@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Hello :3</h1>
+    <h1>Hello, <?= $this->session->userdata('level'); ?> :3</h1>
     <div class="row mt-3">
         <div class="col-md-6">
             <form action="" method="post">

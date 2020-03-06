@@ -28,12 +28,13 @@
 
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="<?= base_url(); ?>">Home <span class="sr-only">(current)</span> </a> 
+                    <a class="nav-item nav-link" href="<?= base_url(); ?>home">Home <span class="sr-only">(current)</span> </a> 
                     <a class="nav-item nav-link" href="<?= base_url(); ?>mahasiswa">Data Mahasiswa</a> 
                     <a class="nav-item nav-link" href="<?= base_url(); ?>kelas">Data Kelas</a>
                     <a class="nav-item nav-link" href="<?= base_url(); ?>matkul">Data Mata Kuliah</a>
                     <a class="nav-item nav-link" href="<?= base_url(); ?>mengampu">Data Mengampu</a>
                     <a class="nav-item nav-link" href="<?= base_url(); ?>">About</a>
+                    <a class="nav-item nav-link" href="<?= base_url(); ?>login/logout">Logout</a>
                     <!-- <a class="nav-item nav-link disabled" href="#">Disabled</a> -->
                 </div>
             </div>

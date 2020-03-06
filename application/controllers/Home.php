@@ -10,11 +10,13 @@ class Home extends CI_Controller {
         $this->load->model('home_model');
         $this->load->helper('url', 'form');
         $this->load->library('form_validation');
+        
     }
 
     public function index()
     {
         $data['title'] = 'Home';
+        // $data['name'] = $name;
         $data['mengampu'] = $this->home_model->getAll();
         if ($this->input->post('key')) {
             $data['mengampu'] = $this->home_model->cariDataAll();
@@ -22,6 +24,12 @@ class Home extends CI_Controller {
         $this->load->view('template/header', $data);
         $this->load->view('home/index', $data);
         $this->load->view('template/footer');
+        $this->load->library('session');
+        
+
+        if($this->session->userdata('level')!="admin"){
+            redirect('login','refresh');
+        }
     }
 
     public function tambah()
