@@ -27,6 +27,7 @@ class user extends CI_Controller {
             'title' => 'data mahasiswa',
             'mahasiswa' => $this->mahasiswa_model->datatables()
         );
+
         $this->load->view('template/header_datatables_user', $data);
         $this->load->view('mahasiswa/user', $data);
         $this->load->view('template/footer_datatables_user');
@@ -45,6 +46,18 @@ class user extends CI_Controller {
         
     }
 
+    public function toJson(){
+        $data = array('data' => $this->mahasiswa_model->getAllMahasiswa());;
+        echo json_encode($data);
+        // $this->load->view('mahasiswa/user', $data);
+    }
+
+    public function jsonView()
+    {
+        $this->load->view('template/header_datatables_user');
+        $this->load->view('mahasiswa/json_view');
+        $this->load->view('template/footer_datatables_user');
+    }
 }
 
 /* End of file user.php */

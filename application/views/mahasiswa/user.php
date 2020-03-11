@@ -2,7 +2,7 @@
 <!-- <h1>Hello, <?php //echo $this->session->userdata('level'); ?> :3</h1> -->
 <!-- <a class="nav-item nav-link" href="<?php //echo base_url(); ?>login/logout">Logout</a> -->
 
-
+<?php //json_decode($mahasiswa); ?>
 <div class="container" style="margin-top: 20px">
     <div class="col-md-12">
         <h1 style="text-align: center; margin-bottom: 30px;">Data Mahasiswa</h1>
