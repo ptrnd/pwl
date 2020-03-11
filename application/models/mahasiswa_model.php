@@ -76,6 +76,13 @@
             $this->db->or_like('jurusan', $key);
             return $this->db->get('mahasiswa')->result_array();
         }
+
+        public function datatables()
+        {
+            $query = $this->db->order_by('id', 'desc')->get('mahasiswa');
+            return $query->result();
+            
+        }
     }
     
     /* End of file mahasiswa_model.php */

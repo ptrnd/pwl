@@ -12,16 +12,37 @@ class user extends CI_Controller {
         $this->load->helper('url');
         $this->load->helper('form');
         $this->load->model('login_model');
+        $this->load->model('mahasiswa_model');
+        $this->load->model('cetak_model');
         // $this->load->library('session');
         if ($this->session->userdata('level')!="user") {
             redirect('login','refresh');
         }
     }
-    
 
     public function index()
     {
-        $this->load->view('mahasiswa/user');
+
+        $data = array(
+            'title' => 'data mahasiswa',
+            'mahasiswa' => $this->mahasiswa_model->datatables()
+        );
+        $this->load->view('template/header_datatables_user', $data);
+        $this->load->view('mahasiswa/user', $data);
+        $this->load->view('template/footer_datatables_user');
+    }
+
+    public function laporan_pdf()
+    {
+        $this->load->library('pdf');
+        
+        $data['mahasiswa'] = $this->cetak_model->view();
+        $this->load->library('pdf');
+        
+        $this->pdf->setPaper('A4', 'portrait');
+        $this->pdf->filename = "laporan-petanikode.pdf";
+        $this->pdf->load_view('mahasiswa/laporan', $data);
+        
     }
 
 }
