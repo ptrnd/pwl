@@ -1,48 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Report Table</title>
     <style type="text/css">
-        #outtable{
-            padding: 20px;
-            border: 1px solid #e3e3e3;
-            width: 600px;
-            border-radius: 5px;
-        }
+    #outtable {
+        padding: 20px;
+        border: 1px solid #e3e3e3;
+        width: 600px;
+        border-radius: 5px;
+    }
 
-        .short{
-            width: 50px;
-        }
+    .short {
+        width: 50px;
+    }
 
-        .normal{
-            width: 150px;
-        }
+    .normal {
+        width: 150px;
+    }
 
-        table{
-            border-collapse: collapse;
-            font-family: Arial;
-            color: #5E5B5C;
-        }
+    table {
+        border-collapse: collapse;
+        font-family: Arial;
+        color: #5E5B5C;
+    }
 
-        thead th{
-            text-align: left;
-            padding: 10px;
-        }
+    thead th {
+        text-align: left;
+        padding: 10px;
+    }
 
-        tbody td{
-            border-top: 1px solid #e3e3e3;
-            padding: 10px;
-        }
+    tbody td {
+        border-top: 1px solid #e3e3e3;
+        padding: 10px;
+    }
 
-        tbody tr:nth-child(even){
-            background: #F6F5FA;
-        }
+    tbody tr:nth-child(even) {
+        background: #F6F5FA;
+    }
 
-        tbody tr:hover{
-            background: #EAE9F5;
-        }
+    tbody tr:hover {
+        background: #EAE9F5;
+    }
     </style>
 </head>
+
 <body>
     <div id="outtable">
         <table>
@@ -55,8 +57,8 @@
                 </tr>
             </thead>
             <tbody>
-                <?php $no = 1;?>
-                <?php foreach ($mahasiswa as $mhs) :?>
+                <?php $no = 1; ?>
+                <?php foreach ($mahasiswa as $mhs) : ?>
                 <tr>
                     <td><?php echo $no; ?></td>
                     <td><?php echo $mhs->nama; ?></td>
@@ -69,4 +71,5 @@
         </table>
     </div>
 </body>
+
 </html>
