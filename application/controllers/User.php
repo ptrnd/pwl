@@ -56,7 +56,7 @@ class user extends CI_Controller
     {
         $this->load->view('template/header_datatables_user');
         $this->load->view('mahasiswa/json_view');
-        $this->load->view('template/footer_datatables_user');
+        $this->load->view('template/footer_json');
     }
 }
 
